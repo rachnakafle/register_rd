@@ -14,13 +14,14 @@ namespace Registration_RelationalDB.Helpers
         public int DMLTransaction(string Query)
         {
             int Result;
-            string connectionString = _config["ConnectionStrings:DefaultConnection"];
+            string connectionString = _config["ConnectionStrings:DefaultConnectionString"];
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
                 string sql = Query;
                 SqlCommand command = new SqlCommand(sql, connection);
+                //Result = command.ExecuteNonQuery();
                 Result = command.ExecuteNonQuery();
                 connection.Close();
             }

@@ -9312,19 +9312,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rachana\\.nuget\\packages\\": {}
+    "C:\\Users\\Dell\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rachana\\Desktop\\Coding Projects\\Dot Net\\WebApplication1\\Registration_RelationalDB.csproj",
+      "projectUniqueName": "D:\\DotNet\\MVC\\self_practice\\register_rd\\Registration_RelationalDB.csproj",
       "projectName": "Registration_RelationalDB",
-      "projectPath": "C:\\Users\\Rachana\\Desktop\\Coding Projects\\Dot Net\\WebApplication1\\Registration_RelationalDB.csproj",
-      "packagesPath": "C:\\Users\\Rachana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rachana\\Desktop\\Coding Projects\\Dot Net\\WebApplication1\\obj\\",
+      "projectPath": "D:\\DotNet\\MVC\\self_practice\\register_rd\\Registration_RelationalDB.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "D:\\DotNet\\MVC\\self_practice\\register_rd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Rachana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9377,7 +9377,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
