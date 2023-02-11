@@ -16,9 +16,14 @@ namespace WebApplication1.Controllers
             _helper = new CommonHelper(_config);
         }
 
+
         [HttpGet]
         public IActionResult Register()
         {
+            //HttpContext context = HttpContext.Items["Rachana"];
+            //HttpContext context = HttpContext.Session;
+            //var data = HttpContext.Items["Rachana"];
+            var data = HttpContext.Session.GetString("Rachana");
             return View();
         }
 
@@ -31,26 +36,20 @@ namespace WebApplication1.Controllers
             if (userExists == true)
             {
                 ViewBag.Error = "UserName and Email Already Exists";
-                return View("Register", "Register");
+                return View("Register", vm);
             }
 
             //string Query = "Insert into [Table_2](UserName,Email,Password,Name," + $"ContactNumber,Address,RoleId)values('{vm.UserName}','{vm.Email}','{vm.Password}'" + $", '{vm.Name}', '{vm.ContactNumber}, '{vm.Address}', '{2}')";
 
-            string Query = "Insert into [RDB_Table](UserName,Email,Password,Name," + $"ContactNumber,Address,Id)values('{vm.UserName}','{vm.Email}','{vm.Password}'" + $",'{vm.Name}', '{vm.ContactNumber}', '{vm.Address}', '{2}')";
-
-            //            string Query = $"Insert into [RDB_Table](UserName,Email,Password,Name,ContactNumber,Address,RoleId)
-            //Value('{ vm.UserName}', '{ vm.Email}', '{vm.Password}', '{vm.Name}', '{ vm.ContactNumber}', '{ Vm.Address}', '{2}')";
-
-
-            //string Query = "Insert into [Table_2](UserName,Email,Password,Name,ContactNumber,Address,RoleId) values 
-            //string Query = "SELECT * FROM Table_2";
+            string Query = "Insert into [RDB_Table](UserName,Email,Password,Name," + $"ContactNumber,Address)values('{vm.UserName}','{vm.Email}','{vm.Password}'" + $",'{vm.Name}', '{vm.ContactNumber}', '{vm.Address}')";
 
             int result = _helper.DMLTransaction(Query);
             if (result > 0)
             {
+
                 EntryIntoSession(vm.UserName);
-                //return RedirectToAction("Index", "Register");
-                return View();
+                return RedirectToAction("Register", "Register");
+                //return View();
             }
             return View();
         }
@@ -58,10 +57,7 @@ namespace WebApplication1.Controllers
         private void EntryIntoSession(string UserName)
         {
             HttpContext.Session.SetString("Rachana", UserName);
-        }
-        public IActionResult Index()
-        {
-            return View();
+           
         }
     }
 }
