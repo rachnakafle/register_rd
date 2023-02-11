@@ -48,6 +48,7 @@ namespace WebApplication1.Controllers
             {
 
                 EntryIntoSession(vm.UserName);
+                ViewBag.Success = "Thank you for registering!!";
                 return RedirectToAction("Register", "Register");
                 //return View();
             }

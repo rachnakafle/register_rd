@@ -9,7 +9,7 @@
 @*<h4>RegisterViewModel</h4>*@
 <hr />
 <div class="row">
-    <div class="text-danger">@ViewBag.Error</div> <br />
+   @* <div class="text-danger">@ViewBag.Error</div> <br />*@
     <div class="col-md-4">
 
         <form asp-action="Register">
@@ -51,6 +51,16 @@
         </form>
     </div>
 </div>
+
+@if (ViewBag.Error != null)
+{
+    <span class="alert alert-danger">@ViewBag.Error</span>
+}
+
+@if (ViewBag.Success != null)
+{
+    <span class="alert alert-danger">@ViewBag.Success</span>
+}
 
 
 @section Scripts {
