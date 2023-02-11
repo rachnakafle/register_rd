@@ -25,7 +25,8 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel vm)
         {
-            string UserExistsQuery = $"Select * from [Table_2] where  UserName = '{vm.UserName}'" + $" OR Email = '{vm.Email}'";
+            //string UserExistsQuery = $"Select * from [Table_2] where  UserName = '{vm.UserName}'" + $" OR Email = '{vm.Email}'";
+            string UserExistsQuery = $"Select * from [RDB_Table] where  UserName = '{vm.UserName}'" + $" OR Email = '{vm.Email}'";
             bool userExists = _helper.UserAlreadyExists(UserExistsQuery);
             if (userExists == true)
             {
@@ -33,7 +34,14 @@ namespace WebApplication1.Controllers
                 return View("Register", "Register");
             }
 
-            string Query = "Insert into [Table_2](UserName,Email,Password,Name," + $"ContactNumber,Address,RoleId)values('{vm.UserName}','{vm.Email}','{vm.Password}'" + $", '{vm.Name}', '{vm.ContactNumber}, '{vm.Address}', '{2}')";
+            //string Query = "Insert into [Table_2](UserName,Email,Password,Name," + $"ContactNumber,Address,RoleId)values('{vm.UserName}','{vm.Email}','{vm.Password}'" + $", '{vm.Name}', '{vm.ContactNumber}, '{vm.Address}', '{2}')";
+
+            string Query = "Insert into [RDB_Table](UserName,Email,Password,Name," + $"ContactNumber,Address,Id)values('{vm.UserName}','{vm.Email}','{vm.Password}'" + $",'{vm.Name}', '{vm.ContactNumber}', '{vm.Address}', '{2}')";
+
+            //            string Query = $"Insert into [RDB_Table](UserName,Email,Password,Name,ContactNumber,Address,RoleId)
+            //Value('{ vm.UserName}', '{ vm.Email}', '{vm.Password}', '{vm.Name}', '{ vm.ContactNumber}', '{ Vm.Address}', '{2}')";
+
+
             //string Query = "Insert into [Table_2](UserName,Email,Password,Name,ContactNumber,Address,RoleId) values 
             //string Query = "SELECT * FROM Table_2";
 
@@ -41,7 +49,8 @@ namespace WebApplication1.Controllers
             if (result > 0)
             {
                 EntryIntoSession(vm.UserName);
-                return RedirectToAction("Index", "Default");
+                //return RedirectToAction("Index", "Register");
+                return View();
             }
             return View();
         }
