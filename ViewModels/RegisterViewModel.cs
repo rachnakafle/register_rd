@@ -6,7 +6,7 @@ namespace WebApplication1.ViewModels
     {
         //public int Id { get; set; }
         [Display(Name = "User Name")]
-        [Required(ErrorMessage = "Participant's Name is required.")]
+        [Required(ErrorMessage = "User Name is required.")]
         public string? UserName { get; set; }
         [Required(ErrorMessage = "Email is required.")]
         public string? Email { get; set; }
